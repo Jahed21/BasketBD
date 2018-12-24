@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using BasketBD.Data;
 using BasketBD.Models;
 using BasketBD.Services;
+using BasketBD.Models.Data;
 
 namespace BasketBD
 {
@@ -28,6 +29,7 @@ namespace BasketBD
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<BasketBDContext>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
